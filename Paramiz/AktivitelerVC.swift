@@ -11,11 +11,12 @@ import UIKit
 class AktivitelerVC: UITableViewController {
 
     
+    var veriler = UserDefaults.standard
     var aktivitelerListesi = ["Ev","Kapadokya Gezisi","İstanbul Gezisi","Okul Arkadaşları"]
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        aktivitelerListesi = veriler.array(forKey: "AktiviteListesi") as! [String]
     }
 
    
@@ -63,6 +64,7 @@ class AktivitelerVC: UITableViewController {
             
             if !txtAktiviteAdi.text!.isEmpty {
                 self.aktivitelerListesi.append(txtAktiviteAdi.text!)
+                self.veriler.set(self.aktivitelerListesi, forKey: "AktiviteListesi")
                 self.tableView.reloadData()
             }
             
