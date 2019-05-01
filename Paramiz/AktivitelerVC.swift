@@ -51,6 +51,28 @@ class AktivitelerVC: UITableViewController {
         
     }
     
+    @IBAction func btnAktiviteEkle(_ sender: UIBarButtonItem) {
+    
+        let alertController = UIAlertController(title: "Aktivite Ekle", message: "Eklemek İstediğiniz Aktivite", preferredStyle: .alert)
+        alertController.addTextField { txtAktiviteAdi in
+            txtAktiviteAdi.placeholder = "Aktivite Adı"
+        }
+        
+        let ekleAction = UIAlertAction(title: "Ekle", style: .default) { action in
+            let txtAktiviteAdi = alertController.textFields![0]
+            
+            if !txtAktiviteAdi.text!.isEmpty {
+                self.aktivitelerListesi.append(txtAktiviteAdi.text!)
+                self.tableView.reloadData()
+            }
+            
+        }
+        alertController.addAction(ekleAction)
+        present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    
 
    
 }

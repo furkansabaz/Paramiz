@@ -32,7 +32,13 @@
                             <outlet property="delegate" destination="W18-pc-D6K" id="v1e-Jz-TJn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Aktiviteler" id="iZn-a1-hvu"/>
+                    <navigationItem key="navigationItem" title="Aktiviteler" id="iZn-a1-hvu">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="EAc-9B-2kP">
+                            <connections>
+                                <action selector="btnAktiviteEkle:" destination="W18-pc-D6K" id="JmX-Nu-n7I"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FnN-8O-xgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
