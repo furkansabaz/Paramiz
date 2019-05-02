@@ -14,9 +14,17 @@ class AktivitelerVC: UITableViewController {
     var veriler = UserDefaults.standard
     //var aktivitelerListesi = ["Ev","Kapadokya Gezisi","İstanbul Gezisi","Okul Arkadaşları"]
     var aktivitelerListesi = [Aktivite]()
+    let plistDosyaAdi : String  = "AktivitelerListesi.plist"
+    let dosyaYolu = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("AktivitelerListesi.plist")
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+       
+        
+        
         let a1 = Aktivite()
         a1.Adi = "Ev"
         a1.Bittimi = true
@@ -32,21 +40,9 @@ class AktivitelerVC: UITableViewController {
         a4.Bittimi = true
         aktivitelerListesi.append(a4)
         
-        for i in 1...100 {
-            let a5 = Aktivite()
-            a5.Adi = "İstanbul Gezisi(\(i))"
-            aktivitelerListesi.append(a5)
+        if let aktivitiler = veriler.array(forKey: "AktivitelerListesi") as? [Aktivite] {
+            aktivitelerListesi = aktivitiler
         }
-        
-       /*
-        if let liste = veriler.array(forKey: "AktiviteListesi") as? [String] {
-            aktivitelerListesi = liste
-        }
-        
-        for i in 1...100 {
-            aktivitelerListesi.append("\(i)")
-        }
-         */
         
         
     }
@@ -65,7 +61,6 @@ class AktivitelerVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        print("Çalıştı CellForRowAt \(indexPath.row)")
         let cell = UITableViewCell(style: .default, reuseIdentifier: "aktiviteCell")
         //let cell = tableView.dequeueReusableCell(withIdentifier: "aktiviteCell", for: indexPath)
         cell.textLabel?.text = aktivitelerListesi[indexPath.row].Adi
@@ -81,8 +76,7 @@ class AktivitelerVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let secilenHucre = tableView.cellForRow(at: indexPath)
-        
+       
         aktivitelerListesi[indexPath.row].Bittimi = !aktivitelerListesi[indexPath.row].Bittimi
         
        /*
@@ -110,7 +104,14 @@ class AktivitelerVC: UITableViewController {
                 let a1 = Aktivite()
                 a1.Adi = txtAktiviteAdi.text!
                 self.aktivitelerListesi.append(a1)
-                self.veriler.set(self.aktivitelerListesi, forKey: "AktiviteListesi")
+                //self.veriler.set(self.aktivitelerListesi, forKey: "AktiviteListesi")
+                
+                do {
+                    let data = try PropertyListEncoder().encode(self.aktivitelerListesi)
+                    try data.write(to: self.dosyaYolu)
+                }catch {
+                    print("Veriler Kaydedilirken Hata Meydana Geldi : \(error.localizedDescription)")
+                }
                 self.tableView.reloadData()
             }
             
