@@ -16,7 +16,16 @@ class AktivitelerVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        aktivitelerListesi = veriler.array(forKey: "AktiviteListesi") as! [String]
+       
+        if let liste = veriler.array(forKey: "AktiviteListesi") as? [String] {
+            aktivitelerListesi = liste
+        }
+        
+        for i in 1...100 {
+            aktivitelerListesi.append("\(i)")
+        }
+        
+        
     }
 
    
@@ -33,7 +42,8 @@ class AktivitelerVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "aktiviteCell")
+        //let cell = UITableViewCell(style: .default, reuseIdentifier: "aktiviteCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "aktiviteCell", for: indexPath)
         cell.textLabel?.text = aktivitelerListesi[indexPath.row]
         return cell
     }
