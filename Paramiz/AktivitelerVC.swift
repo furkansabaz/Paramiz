@@ -40,9 +40,12 @@ class AktivitelerVC: UITableViewController {
         a4.Bittimi = true
         aktivitelerListesi.append(a4)
         
-        if let aktivitiler = veriler.array(forKey: "AktivitelerListesi") as? [Aktivite] {
-            aktivitelerListesi = aktivitiler
-        }
+        
+        
+        verileriYukle()
+        //if let aktivitiler = veriler.array(forKey: "AktivitelerListesi") as? [Aktivite] {
+        //    aktivitelerListesi = aktivitiler
+        //}
         
         
     }
@@ -105,13 +108,7 @@ class AktivitelerVC: UITableViewController {
                 a1.Adi = txtAktiviteAdi.text!
                 self.aktivitelerListesi.append(a1)
                 //self.veriler.set(self.aktivitelerListesi, forKey: "AktiviteListesi")
-                
-                do {
-                    let data = try PropertyListEncoder().encode(self.aktivitelerListesi)
-                    try data.write(to: self.dosyaYolu)
-                }catch {
-                    print("Veriler Kaydedilirken Hata Meydana Geldi : \(error.localizedDescription)")
-                }
+                self.verileriKaydet()
                 self.tableView.reloadData()
             }
             
@@ -119,6 +116,31 @@ class AktivitelerVC: UITableViewController {
         alertController.addAction(ekleAction)
         present(alertController, animated: true, completion: nil)
         
+    }
+    
+    //verileri plist'e kaydeder
+    func verileriKaydet() {
+        do {
+            let data = try PropertyListEncoder().encode(self.aktivitelerListesi)
+            try data.write(to: self.dosyaYolu)
+        }catch {
+            print("Veriler Kaydedilirken Hata Meydana Geldi : \(error.localizedDescription)")
+        }
+    }
+    
+    //Verileri Plist'ten çeker
+    func verileriYukle() {
+        
+        
+        if let veri = try? Data(contentsOf: dosyaYolu) {
+            do {
+                
+                aktivitelerListesi = try PropertyListDecoder().decode([Aktivite].self, from: veri)
+                
+            } catch {
+                print("Verileri Getirirken Hata Meydana Geldi : \(error.localizedDescription)")
+            }
+        }
     }
     
     
