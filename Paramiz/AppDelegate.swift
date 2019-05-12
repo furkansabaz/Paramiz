@@ -18,16 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         print(Realm.Configuration.defaultConfiguration.fileURL?.absoluteString)
         
-        let kisi = Kisi()
-        kisi.adi = "Abidin"
-        kisi.soyadi = "Dino"
-        kisi.yasi = 65
         
         do {
             let realm = try Realm()
-            try realm.write {
-                realm.add(kisi)
-            }
         }catch {
             print("Realm Veri Eklerken Hata Meydana Geldi : \(error.localizedDescription)")
         }
