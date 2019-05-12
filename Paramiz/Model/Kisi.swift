@@ -7,4 +7,11 @@
 //
 
 import Foundation
+import RealmSwift
 
+
+class Kisi : Object {
+    @objc dynamic var adi : String = ""
+    @objc dynamic var soyadi : String = ""
+    @objc dynamic var yasi : Int = 1
+}

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import RealmSwift
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,7 +15,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
+       
+        print(Realm.Configuration.defaultConfiguration.fileURL?.absoluteString)
+        
+        let kisi = Kisi()
+        kisi.adi = "Abidin"
+        kisi.soyadi = "Dino"
+        kisi.yasi = 65
+        
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(kisi)
+            }
+        }catch {
+            print("Realm Veri Eklerken Hata Meydana Geldi : \(error.localizedDescription)")
+        }
+        
         return true
     }
 
