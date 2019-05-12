@@ -14,9 +14,13 @@
 		3D676DB1227986DD0081E3C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D676DAF227986DD0081E3C5 /* LaunchScreen.storyboard */; };
 		3D7BED6C227B23CC00F1E6EB /* Aktivite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7BED6B227B23CC00F1E6EB /* Aktivite.swift */; };
 		3D9B19A922881D4400E15E08 /* OdemeListesiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9B19A822881D4400E15E08 /* OdemeListesiVC.swift */; };
+		3D9B19B82288AE8800E15E08 /* Kisi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9B19B72288AE8800E15E08 /* Kisi.swift */; };
+		B957766D8973782D0EC2E6E1 /* Pods_Paramiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF2ACDE72589653D0A64D32 /* Pods_Paramiz.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16F6748F3897AF3FF4BB6A3C /* Pods-Paramiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paramiz.release.xcconfig"; path = "Pods/Target Support Files/Pods-Paramiz/Pods-Paramiz.release.xcconfig"; sourceTree = "<group>"; };
+		2FF2ACDE72589653D0A64D32 /* Pods_Paramiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Paramiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D66DCEE22798D18000F00A6 /* AktivitelerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AktivitelerVC.swift; sourceTree = "<group>"; };
 		3D676DA3227986DD0081E3C5 /* Paramiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paramiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D676DA6227986DD0081E3C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +30,8 @@
 		3D676DB2227986DD0081E3C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D7BED6B227B23CC00F1E6EB /* Aktivite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aktivite.swift; sourceTree = "<group>"; };
 		3D9B19A822881D4400E15E08 /* OdemeListesiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdemeListesiVC.swift; sourceTree = "<group>"; };
+		3D9B19B72288AE8800E15E08 /* Kisi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kisi.swift; sourceTree = "<group>"; };
+		44A4830F591EB5AF01670664 /* Pods-Paramiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paramiz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Paramiz/Pods-Paramiz.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B957766D8973782D0EC2E6E1 /* Pods_Paramiz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +51,8 @@
 			children = (
 				3D676DA5227986DD0081E3C5 /* Paramiz */,
 				3D676DA4227986DD0081E3C5 /* Products */,
+				814F50FC1EAEBC91737C5483 /* Pods */,
+				B949A168EEE7D54C07C478FF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,15 +68,57 @@
 			isa = PBXGroup;
 			children = (
 				3D676DA6227986DD0081E3C5 /* AppDelegate.swift */,
-				3D66DCEE22798D18000F00A6 /* AktivitelerVC.swift */,
-				3D676DAA227986DD0081E3C5 /* Main.storyboard */,
-				3D9B19A822881D4400E15E08 /* OdemeListesiVC.swift */,
+				3D9B19B62288AE6F00E15E08 /* Model */,
+				3D9B19B52288AE6500E15E08 /* View */,
+				3D9B19B42288AE5B00E15E08 /* Controller */,
 				3D676DAD227986DD0081E3C5 /* Assets.xcassets */,
 				3D676DAF227986DD0081E3C5 /* LaunchScreen.storyboard */,
 				3D676DB2227986DD0081E3C5 /* Info.plist */,
-				3D7BED6B227B23CC00F1E6EB /* Aktivite.swift */,
 			);
 			path = Paramiz;
+			sourceTree = "<group>";
+		};
+		3D9B19B42288AE5B00E15E08 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3D66DCEE22798D18000F00A6 /* AktivitelerVC.swift */,
+				3D9B19A822881D4400E15E08 /* OdemeListesiVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3D9B19B52288AE6500E15E08 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D676DAA227986DD0081E3C5 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3D9B19B62288AE6F00E15E08 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3D7BED6B227B23CC00F1E6EB /* Aktivite.swift */,
+				3D9B19B72288AE8800E15E08 /* Kisi.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		814F50FC1EAEBC91737C5483 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				44A4830F591EB5AF01670664 /* Pods-Paramiz.debug.xcconfig */,
+				16F6748F3897AF3FF4BB6A3C /* Pods-Paramiz.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B949A168EEE7D54C07C478FF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2FF2ACDE72589653D0A64D32 /* Pods_Paramiz.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +128,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D676DB5227986DD0081E3C5 /* Build configuration list for PBXNativeTarget "Paramiz" */;
 			buildPhases = (
+				0E8E06CCDC53956EF739A786 /* [CP] Check Pods Manifest.lock */,
 				3D676D9F227986DD0081E3C5 /* Sources */,
 				3D676DA0227986DD0081E3C5 /* Frameworks */,
 				3D676DA1227986DD0081E3C5 /* Resources */,
+				0AF42ED355B784DEA6DC5B00 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -136,6 +189,47 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0AF42ED355B784DEA6DC5B00 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Paramiz/Pods-Paramiz-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Paramiz/Pods-Paramiz-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0E8E06CCDC53956EF739A786 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Paramiz-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3D676D9F227986DD0081E3C5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -145,6 +239,7 @@
 				3D66DCEF22798D18000F00A6 /* AktivitelerVC.swift in Sources */,
 				3D7BED6C227B23CC00F1E6EB /* Aktivite.swift in Sources */,
 				3D9B19A922881D4400E15E08 /* OdemeListesiVC.swift in Sources */,
+				3D9B19B82288AE8800E15E08 /* Kisi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +383,7 @@
 		};
 		3D676DB6227986DD0081E3C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44A4830F591EB5AF01670664 /* Pods-Paramiz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -306,6 +402,7 @@
 		};
 		3D676DB7227986DD0081E3C5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16F6748F3897AF3FF4BB6A3C /* Pods-Paramiz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
