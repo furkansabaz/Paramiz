@@ -12,18 +12,11 @@ class AktivitelerVC: UITableViewController {
 
     
    
-    var aktivitelerListesi = [Aktivite]()
+    var aktivitelerListesi : Results<Aktivite>?
     let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-       
-        
-        
-        
-        
         
         verileriYukle()
         
@@ -38,16 +31,16 @@ class AktivitelerVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        
-        return aktivitelerListesi.count
+        return aktivitelerListesi?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: .default, reuseIdentifier: "aktiviteCell")
         //let cell = tableView.dequeueReusableCell(withIdentifier: "aktiviteCell", for: indexPath)
-        cell.textLabel?.text = aktivitelerListesi[indexPath.row].Adi
+        cell.textLabel?.text = aktivitelerListesi?[indexPath.row].Adi ?? "Aktivite Bulunamadı"
         
-        if aktivitelerListesi[indexPath.row].Bittimi {
+        if aktivitelerListesi?[indexPath.row].Bittimi ?? false {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none
@@ -87,7 +80,6 @@ class AktivitelerVC: UITableViewController {
             if !txtAktiviteAdi.text!.isEmpty {
                 let a1 = Aktivite()
                 a1.Adi = txtAktiviteAdi.text!
-                self.aktivitelerListesi.append(a1)
                 self.verileriKaydet(aktivite: a1)
                 self.tableView.reloadData()
             }
@@ -110,6 +102,8 @@ class AktivitelerVC: UITableViewController {
     }
     
     func verileriYukle() {
+        aktivitelerListesi = realm.objects(Aktivite.self)
+        tableView.reloadData()
         
     }
    
