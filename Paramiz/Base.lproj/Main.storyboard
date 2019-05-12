@@ -39,10 +39,48 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="lgq-mp-1Ef" kind="show" identifier="odemeListesiSegue" id="CIU-xu-Rye"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FnN-8O-xgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1539.1304347826087" y="104.46428571428571"/>
+            <point key="canvasLocation" x="1696" y="104"/>
+        </scene>
+        <!--Ödeme Listesi-->
+        <scene sceneID="e8e-aA-Lls">
+            <objects>
+                <tableViewController title="Ödeme Listesi" id="lgq-mp-1Ef" customClass="OdemeListesiVC" customModule="Paramiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fEm-s6-PgW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="odemeCell" id="DWE-kK-5qq">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DWE-kK-5qq" id="DHN-Aj-zdp">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lgq-mp-1Ef" id="dpB-ZM-Lb5"/>
+                            <outlet property="delegate" destination="lgq-mp-1Ef" id="bBI-nN-qpJ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Ödeme Listesi" id="56x-Ea-a7T">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Gwy-Gf-ZDM">
+                            <connections>
+                                <action selector="btnOdemeEkleClicked:" destination="lgq-mp-1Ef" id="r9C-2L-PWe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5G0-Og-0bD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2504" y="104"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pYG-eO-6tS">

@@ -79,18 +79,20 @@ class AktivitelerVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-       
+       /*
         aktivitelerListesi[indexPath.row].Bittimi = !aktivitelerListesi[indexPath.row].Bittimi
         
-       /*
+       
         if secilenHucre?.accessoryType == UITableViewCell.AccessoryType.checkmark {
             secilenHucre?.accessoryType = .none
         } else {
             secilenHucre?.accessoryType = .checkmark
         }
-         */
+ 
         tableView.reloadData()//cellForRowAt metodu tekrar çalışacak ve bütün satırlar yeniden oluşacak
+        */
         
+        performSegue(withIdentifier: "odemeListesiSegue", sender: self)
     }
     
     @IBAction func btnAktiviteEkle(_ sender: UIBarButtonItem) {

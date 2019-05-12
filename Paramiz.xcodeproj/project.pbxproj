@@ -13,6 +13,7 @@
 		3D676DAE227986DD0081E3C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D676DAD227986DD0081E3C5 /* Assets.xcassets */; };
 		3D676DB1227986DD0081E3C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D676DAF227986DD0081E3C5 /* LaunchScreen.storyboard */; };
 		3D7BED6C227B23CC00F1E6EB /* Aktivite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7BED6B227B23CC00F1E6EB /* Aktivite.swift */; };
+		3D9B19A922881D4400E15E08 /* OdemeListesiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9B19A822881D4400E15E08 /* OdemeListesiVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		3D676DB0227986DD0081E3C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D676DB2227986DD0081E3C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D7BED6B227B23CC00F1E6EB /* Aktivite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aktivite.swift; sourceTree = "<group>"; };
+		3D9B19A822881D4400E15E08 /* OdemeListesiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdemeListesiVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				3D676DA6227986DD0081E3C5 /* AppDelegate.swift */,
 				3D66DCEE22798D18000F00A6 /* AktivitelerVC.swift */,
 				3D676DAA227986DD0081E3C5 /* Main.storyboard */,
+				3D9B19A822881D4400E15E08 /* OdemeListesiVC.swift */,
 				3D676DAD227986DD0081E3C5 /* Assets.xcassets */,
 				3D676DAF227986DD0081E3C5 /* LaunchScreen.storyboard */,
 				3D676DB2227986DD0081E3C5 /* Info.plist */,
@@ -141,6 +144,7 @@
 				3D676DA7227986DD0081E3C5 /* AppDelegate.swift in Sources */,
 				3D66DCEF22798D18000F00A6 /* AktivitelerVC.swift in Sources */,
 				3D7BED6C227B23CC00F1E6EB /* Aktivite.swift in Sources */,
+				3D9B19A922881D4400E15E08 /* OdemeListesiVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
