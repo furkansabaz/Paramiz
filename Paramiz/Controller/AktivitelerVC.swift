@@ -67,6 +67,21 @@ class AktivitelerVC: UITableViewController {
         performSegue(withIdentifier: "odemeListesiSegue", sender: self)
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "odemeListesiSegue" {
+            
+            let hedefVC = segue.destination as! OdemeListesiVC
+            
+            if let seciliIndex = tableView.indexPathForSelectedRow {
+                hedefVC.secilenAktivite = aktivitelerListesi?[seciliIndex.row]
+            }
+            
+        }
+        
+        
+    }
     @IBAction func btnAktiviteEkle(_ sender: UIBarButtonItem) {
     
         let alertController = UIAlertController(title: "Aktivite Ekle", message: "Eklemek İstediğiniz Aktivite", preferredStyle: .alert)

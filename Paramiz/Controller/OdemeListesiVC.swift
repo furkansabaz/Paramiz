@@ -7,9 +7,18 @@
 //
 
 import UIKit
-
+import RealmSwift
 class OdemeListesiVC: UITableViewController {
 
+    
+    
+    let realm = try! Realm()
+    var odemeListesi : Results<Odeme>?
+    var secilenAktivite : Aktivite? {
+        didSet {
+            odemeleriYukle()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,15 +29,75 @@ class OdemeListesiVC: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return odemeListesi?.count ?? 1
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let hucre = tableView.dequeueReusableCell(withIdentifier: "odemeCell", for: indexPath)
+        if let odeme = odemeListesi?[indexPath.row] {
+            hucre.textLabel?.text = odeme.odeyeninAdi
+        } else {
+            hucre.textLabel?.text = "Henüz Eklenen Bir Ödeme Bulunamadı"
+        }
+        return hucre
     }
 
     @IBAction func btnOdemeEkleClicked(_ sender: Any) {
+        
+        let alertController = UIAlertController(title: "Ödeme", message: "Ödeme Ekle", preferredStyle: UIAlertController.Style.alert)
+        
+        alertController.addTextField { txtKisiAdi in
+            txtKisiAdi.placeholder = "Ödeyen Kişi"
+        }
+        alertController.addTextField { txtAciklama in
+            txtAciklama.placeholder = "Açıklama"
+        }
+        
+        alertController.addTextField { txtUcret in
+            txtUcret.placeholder = "Ücret"
+            txtUcret.keyboardType = .numberPad
+        }
+        
+        let add = UIAlertAction(title: "Ekle", style: UIAlertAction.Style.default) { action in
+            
+            let txtKisi = alertController.textFields![0]
+            let txtAciklama = alertController.textFields![1]
+            let txtUcret = alertController.textFields![2]
+            
+            
+            if let secilenAktivite = self.secilenAktivite {
+                do {
+                    try self.realm.write {
+                        let yeniOdeme = Odeme()
+                        yeniOdeme.odeyeninAdi = txtKisi.text ?? "Girilmedi"
+                        yeniOdeme.aciklama = txtAciklama.text ?? "Girilmedi"
+                        yeniOdeme.miktar = Int(txtUcret.text ?? "-1")!
+                        secilenAktivite.odemeler.append(yeniOdeme)
+                    }
+                } catch {
+                    print("Ödeme Eklerken Hata Meydana Geldi : \(error.localizedDescription)")
+                }
+                
+            }
+            self.tableView.reloadData()
+        }
+        
+        alertController.addAction(add)
+        present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    func odemeleriYukle() {
+        
+        odemeListesi = secilenAktivite?.odemeler.sorted(byKeyPath: "odeyeninAdi", ascending: true)
+        
     }
     
 }
