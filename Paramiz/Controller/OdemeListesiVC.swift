@@ -128,4 +128,30 @@ class OdemeListesiVC: UITableViewController {
         tableView.reloadData()
     }
     
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            if let secilenOdeme  = odemeListesi?[indexPath.row] {
+                do {
+                    try realm.write {
+                        realm.delete(secilenOdeme)
+                        print("Ödeme Başarıyla Silndi")
+                    }
+                } catch {
+                    print("Ödeme Silinirken Hata Meydana Geldi : \(error.localizedDescription)")
+                }
+            }
+            
+        }
+        tableView.reloadData()
+    }
+    
+    
+    
+    
 }
