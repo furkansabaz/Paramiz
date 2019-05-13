@@ -121,5 +121,34 @@ class AktivitelerVC: UITableViewController {
         tableView.reloadData()
         
     }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            if let silinecekAktivite = aktivitelerListesi?[indexPath.row] {
+                
+                do {
+                    
+                    try realm.write {
+                        realm.delete(silinecekAktivite.odemeler)
+                        realm.delete(silinecekAktivite)
+                    }
+                    
+                } catch {
+                    print("Aktiviteyi Silerken Hata Meydana Geldi : \(error.localizedDescription)")
+                }
+                
+            }
+            
+            
+        }
+        tableView.reloadData()
+    }
+    
    
 }
