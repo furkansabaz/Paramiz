@@ -14,6 +14,7 @@
 		3D676DB1227986DD0081E3C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D676DAF227986DD0081E3C5 /* LaunchScreen.storyboard */; };
 		3D7809392288C2E00078B22A /* Odeme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7809382288C2E00078B22A /* Odeme.swift */; };
 		3D7BED6C227B23CC00F1E6EB /* Aktivite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D7BED6B227B23CC00F1E6EB /* Aktivite.swift */; };
+		3D83F0F422894CEC00C351C5 /* OdemeDuzenleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D83F0F322894CEC00C351C5 /* OdemeDuzenleVC.swift */; };
 		3D9B19A922881D4400E15E08 /* OdemeListesiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9B19A822881D4400E15E08 /* OdemeListesiVC.swift */; };
 		B957766D8973782D0EC2E6E1 /* Pods_Paramiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FF2ACDE72589653D0A64D32 /* Pods_Paramiz.framework */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,7 @@
 		3D676DB2227986DD0081E3C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D7809382288C2E00078B22A /* Odeme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Odeme.swift; sourceTree = "<group>"; };
 		3D7BED6B227B23CC00F1E6EB /* Aktivite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aktivite.swift; sourceTree = "<group>"; };
+		3D83F0F322894CEC00C351C5 /* OdemeDuzenleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdemeDuzenleVC.swift; sourceTree = "<group>"; };
 		3D9B19A822881D4400E15E08 /* OdemeListesiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OdemeListesiVC.swift; sourceTree = "<group>"; };
 		44A4830F591EB5AF01670664 /* Pods-Paramiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Paramiz.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Paramiz/Pods-Paramiz.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +85,7 @@
 			children = (
 				3D66DCEE22798D18000F00A6 /* AktivitelerVC.swift */,
 				3D9B19A822881D4400E15E08 /* OdemeListesiVC.swift */,
+				3D83F0F322894CEC00C351C5 /* OdemeDuzenleVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				3D676DA7227986DD0081E3C5 /* AppDelegate.swift in Sources */,
 				3D7809392288C2E00078B22A /* Odeme.swift in Sources */,
 				3D66DCEF22798D18000F00A6 /* AktivitelerVC.swift in Sources */,
+				3D83F0F422894CEC00C351C5 /* OdemeDuzenleVC.swift in Sources */,
 				3D7BED6C227B23CC00F1E6EB /* Aktivite.swift in Sources */,
 				3D9B19A922881D4400E15E08 /* OdemeListesiVC.swift in Sources */,
 			);
