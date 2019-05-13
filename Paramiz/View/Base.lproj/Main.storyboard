@@ -100,8 +100,8 @@
                                 <color key="textColor" red="0.1791508912" green="0.40163524509999998" blue="0.61052560290000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="xaA-B3-Sa2">
-                                <rect key="frame" x="20" y="178" width="294" height="116"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="xaA-B3-Sa2">
+                                <rect key="frame" x="20" y="179" width="294" height="116"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="93" translatesAutoresizingMaskIntoConstraints="NO" id="55y-Jr-Znf">
                                         <rect key="frame" x="0.0" y="0.0" width="294" height="30"/>
@@ -156,8 +156,8 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kL9-UX-Fie">
-                                <rect key="frame" x="20" y="306" width="236" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kL9-UX-Fie">
+                                <rect key="frame" x="20" y="310" width="236" height="38"/>
                                 <color key="backgroundColor" red="0.86371165510000003" green="0.5032870009" blue="0.048113637590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="236" id="a5i-uX-9PL"/>
@@ -166,6 +166,9 @@
                                 <state key="normal" title="Güncelle">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnGuncelleClicked:" destination="tjt-Yv-MVN" eventType="touchUpInside" id="dqT-3A-ngx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -175,9 +178,16 @@
                             <constraint firstItem="5ii-hQ-Kz0" firstAttribute="trailing" secondItem="xaA-B3-Sa2" secondAttribute="trailing" constant="100" id="Uak-Uy-Psw"/>
                             <constraint firstItem="mHb-fb-RSU" firstAttribute="centerX" secondItem="sBB-s6-sYM" secondAttribute="centerX" id="XdN-1K-5Dw"/>
                             <constraint firstItem="mHb-fb-RSU" firstAttribute="top" secondItem="5ii-hQ-Kz0" secondAttribute="top" constant="35" id="nW1-1x-oo9"/>
+                            <constraint firstItem="kL9-UX-Fie" firstAttribute="leading" secondItem="5ii-hQ-Kz0" secondAttribute="leading" constant="20" id="w9h-CB-DGj"/>
+                            <constraint firstItem="xaA-B3-Sa2" firstAttribute="top" secondItem="mHb-fb-RSU" secondAttribute="bottom" constant="30" id="ySb-r3-8Lf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5ii-hQ-Kz0"/>
                     </view>
+                    <connections>
+                        <outlet property="txtAciklama" destination="ive-aJ-gyp" id="mW6-Om-wAT"/>
+                        <outlet property="txtOdemeKisiAdi" destination="CrR-0d-WLj" id="Fvj-K6-Y4g"/>
+                        <outlet property="txtUcret" destination="YQO-1f-RvV" id="Hyn-k7-s92"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtk-Zi-HQc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

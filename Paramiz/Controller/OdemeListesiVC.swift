@@ -100,4 +100,32 @@ class OdemeListesiVC: UITableViewController {
         
     }
     
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "odemeDuzenleSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "odemeDuzenleSegue" {
+            
+            let hedefVC = segue.destination as! OdemeDuzenleVC
+            
+            if let seciliIndex = tableView.indexPathForSelectedRow {
+                
+                if let secilenOdeme = odemeListesi?[seciliIndex.row] {
+                    
+                    hedefVC.secilenOdeme = secilenOdeme
+                    hedefVC.title = "\(secilenOdeme.odeyeninAdi) Ödeme Bilgileri"
+                }
+            }
+            
+        }
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
 }
