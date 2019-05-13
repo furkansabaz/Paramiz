@@ -8,8 +8,9 @@
 
 import UIKit
 import RealmSwift
-class AktivitelerVC: UITableViewController {
+class AktivitelerVC: UITableViewController , UISearchBarDelegate {
 
+    @IBOutlet weak var searchBar: UISearchBar!
     
    
     var aktivitelerListesi : Results<Aktivite>?
@@ -19,6 +20,7 @@ class AktivitelerVC: UITableViewController {
         super.viewDidLoad()
         
         verileriYukle()
+        searchBar.delegate = self
         
     }
 
@@ -149,6 +151,24 @@ class AktivitelerVC: UITableViewController {
         }
         tableView.reloadData()
     }
+    
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("Çalıştı")
+        aktivitelerListesi = aktivitelerListesi?.filter("Adi CONTAINS[cd] %@",searchBar.text!).sorted(byKeyPath: "Adi", ascending: true)
+        tableView.reloadData()
+    }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            verileriYukle() // kullanıcının girdiği bir değer yok o zaman tüm verileri yükle
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder() // kullanıcı tüm değerleri sildiğinde klavye yok olacak.
+            }
+        }
+    }
+    
     
    
 }

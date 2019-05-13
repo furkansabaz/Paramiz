@@ -8,8 +8,9 @@
 
 import UIKit
 import RealmSwift
-class OdemeListesiVC: UITableViewController {
+class OdemeListesiVC: UITableViewController, UISearchBarDelegate {
 
+    @IBOutlet weak var searchBar: UISearchBar!
     
     
     let realm = try! Realm()
@@ -21,7 +22,7 @@ class OdemeListesiVC: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        searchBar.delegate = self
         
     }
 
@@ -42,7 +43,7 @@ class OdemeListesiVC: UITableViewController {
         
         let hucre = tableView.dequeueReusableCell(withIdentifier: "odemeCell", for: indexPath)
         if let odeme = odemeListesi?[indexPath.row] {
-            hucre.textLabel?.text = odeme.odeyeninAdi
+            hucre.textLabel?.text = "\(odeme.odeyeninAdi) - \(odeme.miktar) Lira"
         } else {
             hucre.textLabel?.text = "Henüz Eklenen Bir Ödeme Bulunamadı"
         }
@@ -152,6 +153,24 @@ class OdemeListesiVC: UITableViewController {
     }
     
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        if odemeListesi?.count == 0 {
+            odemeleriYukle()
+        }
+        odemeListesi = odemeListesi?.filter("odeyeninAdi == %@",searchBar.text!).sorted(byKeyPath: "miktar", ascending: true)
+        tableView.reloadData()
+        
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchBar.text?.count == 0 {
+            odemeleriYukle()
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        }
+    }
     
     
 }
