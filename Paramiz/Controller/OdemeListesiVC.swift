@@ -117,6 +117,7 @@ class OdemeListesiVC: UITableViewController, UISearchBarDelegate {
                 if let secilenOdeme = odemeListesi?[seciliIndex.row] {
                     
                     hedefVC.secilenOdeme = secilenOdeme
+                    hedefVC.secilenAktivite = secilenAktivite
                     hedefVC.title = "\(secilenOdeme.odeyeninAdi) Ödeme Bilgileri"
                 }
             }
