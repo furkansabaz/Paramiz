@@ -49,10 +49,10 @@ class AktivitelerVC: UITableViewController , UISearchBarDelegate {
         }
         
         if aktivitelerListesi?[indexPath.row].Bittimi ?? false {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
+            cell.backgroundColor = UIColor.darkGray
+            cell.textLabel?.textColor = UIColor.white
         }
+        
         return cell
     }
     
@@ -134,29 +134,6 @@ class AktivitelerVC: UITableViewController , UISearchBarDelegate {
         return true
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
-        if editingStyle == .delete {
-            
-            if let silinecekAktivite = aktivitelerListesi?[indexPath.row] {
-                
-                do {
-                    
-                    try realm.write {
-                        realm.delete(silinecekAktivite.odemeler)
-                        realm.delete(silinecekAktivite)
-                    }
-                    
-                } catch {
-                    print("Aktiviteyi Silerken Hata Meydana Geldi : \(error.localizedDescription)")
-                }
-                
-            }
-            
-            
-        }
-        tableView.reloadData()
-    }
     
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -179,5 +156,47 @@ class AktivitelerVC: UITableViewController , UISearchBarDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let silme = UITableViewRowAction(style: UITableViewRowAction.Style.default, title: "Sil") { (action, indexPath) in
+            if let silinecekAktivite = self.aktivitelerListesi?[indexPath.row] {
+                
+                do {
+                    
+                    try self.realm.write {
+                        self.realm.delete(silinecekAktivite.odemeler)
+                        self.realm.delete(silinecekAktivite)
+                    }
+                    
+                } catch {
+                    print("Aktiviteyi Silerken Hata Meydana Geldi : \(error.localizedDescription)")
+                }
+                
+            }
+            tableView.reloadData()
+        }
+        
+        let odesme = UITableViewRowAction(style: UITableViewRowAction.Style.normal, title: "Ödeştik") { (action, indexPath) in
+            
+            if let aktivite = self.aktivitelerListesi?[indexPath.row] {
+                do {
+                    
+                    try self.realm.write {
+                        aktivite.Bittimi = true
+                        print("Aktivitede Ödeşme Yapıldı")
+                    }
+                    
+                } catch {
+                    print("Ödeşmede Hata Meydana Geldi : \(error.localizedDescription)")
+                }
+                
+            }
+            tableView.reloadData()
+        }
+        
+        odesme.backgroundColor = .green
+        return [odesme,silme]
     }
 }
