@@ -39,8 +39,14 @@ class AktivitelerVC: UITableViewController , UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: .default, reuseIdentifier: "aktiviteCell")
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "aktiviteCell", for: indexPath)
-        cell.textLabel?.text = aktivitelerListesi?[indexPath.row].Adi ?? "Aktivite Bulunamadı"
+       
+        let sonuc : Int  = aktivitelerListesi?[indexPath.row].odemeler.sum(ofProperty: "miktar") ?? 0
+        
+        if let adi = aktivitelerListesi?[indexPath.row].Adi {
+            cell.textLabel?.text = "\(adi) - \(sonuc)"
+        } else {
+            cell.textLabel?.text = "Aktivite Bulunamadı"
+        }
         
         if aktivitelerListesi?[indexPath.row].Bittimi ?? false {
             cell.accessoryType = .checkmark
@@ -170,5 +176,8 @@ class AktivitelerVC: UITableViewController , UISearchBarDelegate {
     }
     
     
-   
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 }
